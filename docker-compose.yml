@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_AUTH_URL=https://quanticarch.com
+    container_name: dgobyke_frontend
+    restart: always
+    ports:
+      - "${NEXT_PORT}:3000"
+    networks:
+      - dgobyke_net
+
+networks:
+  dgobyke_net:
+    driver: bridge
